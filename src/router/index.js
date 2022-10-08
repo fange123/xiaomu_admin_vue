@@ -57,9 +57,24 @@ export const asyncRoutes = [
   { path: '/book', redirect: '/book/create', meta: { title: '图书管理', icon: 'documentation' }, component: Layout, children: [
     {
       path: '/book/create',
-      component: () => import('@/views/create'),
-      meta: { title: '上传图片', icon: '' },
+      component: () => import('@/views/book/create'),
+      meta: { title: '上传图片', icon: 'edit' },
       roles: ['admin']
+    },
+    {
+      path: '/book/edit',
+      component: () => import('@/views/book/edit'),
+      meta: { title: '编辑图书', icon: 'edit' },
+      hidden: true,
+      //# activeMenu指定路由高亮的菜单
+      activeMenu:'/book/list',
+      roles: ['admin']
+    },
+    {
+      path: '/book/list',
+      component: () => import('@/views/book/create'),
+      meta: { title: '图书列表', icon: 'list' },
+      roles: ['editor']
     }
   ] },
   { path: '*', redirect: '/404', hidden: true }
