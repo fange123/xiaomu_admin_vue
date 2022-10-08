@@ -15,7 +15,7 @@
     <div class="detail-container">
       <el-row>
         <el-col :span="24">
-          aa
+          <EbookUpload/>
           <!-- 编写具体的表单的空间 -->
         </el-col>
       </el-row>
@@ -27,10 +27,12 @@
 
 <script>
 import Sticky from '@/components/Sticky'
+import EbookUpload from '@/components/EbookUpload'
 export default {
     name:'Detail',
     components:{
-      Sticky
+      Sticky,
+      EbookUpload
     },
     props:{
       isEdit:Boolean
