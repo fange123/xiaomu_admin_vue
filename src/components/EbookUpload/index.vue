@@ -32,7 +32,7 @@ export default {
     name:'index',
     data() {
         return {
-          action:`${process.env.VUE_APP_BASE_API}/api/user/book/upload`,
+          action:`${process.env.VUE_APP_BASE_API}/api/book/upload`,
           fileList:[],
           disabled:false
         }
