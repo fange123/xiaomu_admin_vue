@@ -1,7 +1,7 @@
 <!--  -->
 <template>
 <div class="">
-  <Detail is-edit='false'/>
+  <Detail :is-edit='false'/>
 </div>
 </template>
 

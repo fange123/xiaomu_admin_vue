@@ -1,19 +1,43 @@
 <!--  -->
 <template>
-<div class="">
-  isEdit:{{isEdit}}
+  <el-form>
+    <Sticky :class-name="'sub-navbar'">
+      <el-button @click="showGuide" v-if="!isEdit">显示帮助</el-button>
+      <el-button
+        style="margin-left:10px"
+        type="success"
+        v-loading="loading"
+        @click="submitForm"
+        >
+        {{isEdit ? '编辑电子书':'新增电子书'}}
+      </el-button>
+    </Sticky>
+    <div class="detail-container">
+      <el-row>
+        <el-col :span="24">
+          aa
+          <!-- 编写具体的表单的空间 -->
+        </el-col>
+      </el-row>
 
-</div>
+    </div>
+
+  </el-form>
 </template>
 
 <script>
+import Sticky from '@/components/Sticky'
 export default {
     name:'Detail',
+    components:{
+      Sticky
+    },
     props:{
       isEdit:Boolean
     },
     data() {
         return {
+          loading:false
 
         }
     },
@@ -24,10 +48,24 @@ export default {
     //生命周期 - 挂载完成（访问DOM元素）
     mounted() {
 
+    },
+    methods: {
+      submitForm(){
+        this.loading = true
+        setTimeout(()=> {
+          this.loading = false
+
+        },1000)
+      },
+      showGuide(){
+        console.log('show');
+      }
     }
 }
 </script>
 <style  scoped>
-/* @import url(); 引入css类 */
+  .detail-container {
+    padding:30px 50px 40px
+  }
 
 </style>
